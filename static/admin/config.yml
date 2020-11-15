@@ -31,6 +31,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "items"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
+      - {label: "Images", name: "images", widget: "list", max: 5, field: {label: Image, name: image, widget: image}}
       - {label: "Price", name: "price", widget: "number", value_type: "float"}
       - {label: "Quantity", name: "quantity", widget: "number", value_type: "int"}
       - {label: "Category", name: "category", widget: "relation", collection: "categories", value_field: "title", search_field: "title"}

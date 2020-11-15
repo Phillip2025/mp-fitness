@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 export const ItemPageTemplate = ({
   title,
   description,
+  images,
   price,
   quantity,
   category,
@@ -32,6 +33,9 @@ export const ItemPageTemplate = ({
               <p>{price}</p>
               <p>{quantity}</p>
               <p>{category}</p>
+              {images.map(image => (
+                <img src={image.image} />
+              ))}
             </div>
           </div>
         </div>
@@ -43,6 +47,7 @@ export const ItemPageTemplate = ({
 ItemPageTemplate.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  images: PropTypes.array,
   price: PropTypes.number,
   quantity: PropTypes.number,
   category: PropTypes.string,
@@ -56,6 +61,7 @@ const ItemPage = ({ data }) => {
       <ItemPageTemplate
         title={frontmatter.title}
         description={frontmatter.description}
+        images={frontmatter.images}
         price={frontmatter.price}
         quantity={frontmatter.quantity}
         category={frontmatter.category}
@@ -80,6 +86,9 @@ export const itemPageQuery = graphql`
       frontmatter {
         title
         description
+        images {
+          image
+        }
         price
         quantity
         category
