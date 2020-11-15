@@ -34,7 +34,7 @@ export const ItemPageTemplate = ({
               <p>{quantity}</p>
               <p>{category}</p>
               {images.map(image => (
-                <img src={image.image} />
+                <img src={image.image.childImageSharp.fluid.src} />
               ))}
             </div>
           </div>
@@ -87,7 +87,13 @@ export const itemPageQuery = graphql`
         title
         description
         images {
-          image
+          image {
+            childImageSharp {
+              fluid(maxWidth: 256, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         price
         quantity
