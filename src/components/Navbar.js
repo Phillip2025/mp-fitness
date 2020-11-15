@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import { Link, graphql, StaticQuery } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
@@ -60,6 +61,11 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
+              {this.props.data.allMarkdownRemark.edges.map(category => (
+                <Link className="navbar-item" to={category.node.fields.slug}>
+                {category.node.frontmatter.name}
+              </Link>
+              ))}
               <Link className="navbar-item" to="/about">
                 About
               </Link>
@@ -95,4 +101,36 @@ const Navbar = class extends React.Component {
   }
 }
 
-export default Navbar
+Navbar.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }),
+}
+
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query NavbarQuery {
+        allMarkdownRemark(
+          sort: { order: ASC, fields: [frontmatter___name] }
+          filter: { frontmatter: { templateKey: { eq: "categories" } } }
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                name
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Navbar data={data} />}
+  />
+)
