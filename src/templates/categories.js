@@ -5,7 +5,8 @@ import Layout from '../components/Layout'
 
 export const CategoryPageTemplate = ({
   title,
-  description, 
+  description,
+  items,
 }) => (
   <div className="content">
     
@@ -26,7 +27,10 @@ export const CategoryPageTemplate = ({
           <div className="columns">
             <div className="column is-7 is-offset-1">
               <h3 className="has-text-weight-semibold is-size-2">{description}</h3>
-              <p>{description}</p>
+              <p>Products</p>
+              {items && items.map(i => (
+                <p>{i.node.frontmatter.title} - {i.node.frontmatter.price}</p>
+              ))}
             </div>
           </div>
         </div>
@@ -40,35 +44,37 @@ CategoryPageTemplate.propTypes = {
   description: PropTypes.string,
 }
 
-const CategoryPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
+const CategoryPage = ({ data }) => (
     <Layout>
       <CategoryPageTemplate
-        title={frontmatter.title}
-        description={frontmatter.description}
+        title={data.category.frontmatter.title}
+        description={data.category.frontmatter.description}
+        items={data.items.edges}
       />
     </Layout>
-  )
-}
-
-CategoryPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+);
 
 export default CategoryPage
 
 export const categoryPageQuery = graphql`
-  query CategoryPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query CategoryPage($id: String!, $title: String!) {
+    category: markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
         description
+      }
+    }
+    items: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___title] }
+      filter: { frontmatter: { category: { eq: $title } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            price
+          }
+        }
       }
     }
   }
