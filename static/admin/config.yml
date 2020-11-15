@@ -16,9 +16,10 @@ collections:
     label: "Categories"
     folder: "src/pages/categories"
     create: true
+    slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "categories"}
-      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
 
   - name: "blog"

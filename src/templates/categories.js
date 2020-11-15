@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 export const CategoryPageTemplate = ({
-  name,
+  title,
   description, 
 }) => (
   <div className="content">
@@ -18,7 +18,7 @@ export const CategoryPageTemplate = ({
           padding: '1rem',
         }}
       >
-        {name}
+        {title}
       </h2>
     <section className="section section--gradient">
       <div className="container">
@@ -36,7 +36,7 @@ export const CategoryPageTemplate = ({
 )
 
 CategoryPageTemplate.propTypes = {
-  name: PropTypes.string,
+  title: PropTypes.string,
   description: PropTypes.string,
 }
 
@@ -46,7 +46,7 @@ const CategoryPage = ({ data }) => {
   return (
     <Layout>
       <CategoryPageTemplate
-        name={frontmatter.name}
+        title={frontmatter.title}
         description={frontmatter.description}
       />
     </Layout>
@@ -67,7 +67,7 @@ export const categoryPageQuery = graphql`
   query CategoryPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        name
+        title
         description
       }
     }

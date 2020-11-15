@@ -63,7 +63,7 @@ const Navbar = class extends React.Component {
             <div className="navbar-start has-text-centered">
               {this.props.data.allMarkdownRemark.edges.map(category => (
                 <Link className="navbar-item" to={category.node.fields.slug}>
-                {category.node.frontmatter.name}
+                {category.node.frontmatter.title}
               </Link>
               ))}
               <Link className="navbar-item" to="/about">
@@ -114,7 +114,7 @@ export default () => (
     query={graphql`
       query NavbarQuery {
         allMarkdownRemark(
-          sort: { order: ASC, fields: [frontmatter___name] }
+          sort: { order: ASC, fields: [frontmatter___title] }
           filter: { frontmatter: { templateKey: { eq: "categories" } } }
         ) {
           edges {
@@ -124,7 +124,7 @@ export default () => (
                 slug
               }
               frontmatter {
-                name
+                title
               }
             }
           }
