@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'MP Fitness',
-    description:
-      'MP Fitness description.',
-    author: '@mpfitnessmad'
+    description: 'MP Fitness description.',
+    author: '@mpfitnessmad',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -75,4 +74,4 @@ module.exports = {
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-}
+};

@@ -1,13 +1,13 @@
-import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Banner from "../components/banner"
-import LatestBlogs from "../components/latestBlog"
-import Countdown from "../components/countdown"
+import React from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Banner from '../components/banner';
+import LatestBlogs from '../components/latestBlog';
+import Countdown from '../components/countdown';
 import StarRatingComponent from 'react-star-rating-component';
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby';
 
 class IndexPost extends React.Component {
   render() {
@@ -18,18 +18,17 @@ class IndexPost extends React.Component {
           {data.data.allContentfulProduct.edges.map(items => (
             <div className="Catalogue__item col-sm-12 col-md-6 col-lg-4" key={items.node.id}>
               <div className="details_List">
-                {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fluid} />}
+                {items.node.image === null ? (
+                  <div className="no-image">No Image</div>
+                ) : (
+                  <Img sizes={items.node.image.fluid} />
+                )}
 
                 <div className="details_inner">
-
                   <h2>
                     <Link to={`/${items.node.slug}`}>{items.node.name}</Link>
                   </h2>
-                  <StarRatingComponent
-                    name="rate1"
-                    starCount={5}
-                    value={items.node.rating}
-                  />
+                  <StarRatingComponent name="rate1" starCount={5} value={items.node.rating} />
                   <p>{items.node.details.childMarkdownRemark.excerpt}</p>
                   <div className="row">
                     <div className="col-sm-4 align-self-center">
@@ -41,12 +40,13 @@ class IndexPost extends React.Component {
                         className="Product snipcart-add-item"
                         data-item-id={items.node.slug}
                         data-item-price={items.node.price}
-                        data-item-image={items.node.image === null ? "" : items.node.image.fluid.src}
+                        data-item-image={items.node.image === null ? '' : items.node.image.fluid.src}
                         data-item-name={items.node.name}
                         data-item-url={`/`}
                       >
-                        <i className="fas fa-shopping-bag" />Add to Cart
-                    </a>
+                        <i className="fas fa-shopping-bag" />
+                        Add to Cart
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -70,9 +70,9 @@ const IndexPage = data => (
     </div> */}
     {/* <Countdown data={data.data.contentfulDealCountDown} /> */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 // export const query = graphql`
 //   query AboutQuery {

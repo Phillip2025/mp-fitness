@@ -16,26 +16,33 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "categories"
-    label: "Categories"
-    folder: "src/pages/categories"
+  - name: 'categories'
+    label: 'Categories'
+    folder: 'src/pages/categories'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "categories"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "string"}
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'categories' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
 
-  - name: "products"
-    label: "Products"
-    folder: "src/pages/products"
+  - name: 'products'
+    label: 'Products'
+    folder: 'src/pages/products'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "products"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "string"}
-      - {label: "Images", name: "images", widget: "list", max: 5, field: {label: Image, name: image, widget: image}}
-      - {label: "Price", name: "price", widget: "number", valueType: "float"}
-      - {label: "Quantity", name: "quantity", widget: "number", valueType: "int"}
-      - {label: "Category", name: "category", widget: "relation", collection: "categories", valueField: "title", searchFields: ["title"]}
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'products' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Images', name: 'images', widget: 'list', max: 5, field: { label: Image, name: image, widget: image } }
+      - { label: 'Price', name: 'price', widget: 'number', valueType: 'float' }
+      - { label: 'Quantity', name: 'quantity', widget: 'number', valueType: 'int' }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'relation',
+          collection: 'categories',
+          valueField: 'title',
+          searchFields: ['title'],
+        }
