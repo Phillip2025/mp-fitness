@@ -22,7 +22,7 @@ const CategoryPage = ({ data }) => (
                   <h2>
                     <Link to={product.node.fields.slug}>{product.node.frontmatter.title}</Link>
                   </h2>
-                  <p>{product.node.frontmatter.description.excerpt}</p>
+                  <p>{product.node.frontmatter.description}</p>
                   <div className="row">
                     <div className="col-sm-4 align-self-center">
                       <span className="price">{product.node.frontmatter.price}€</span>
