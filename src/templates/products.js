@@ -1,45 +1,58 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 import Layout from '../components/layout'
+import SEO from "../components/seo"
 
 const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
-      <div className="content">
-    
-    <h2
-      className="has-text-weight-bold is-size-1"
-      style={{
-        boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-        backgroundColor: '#f40',
-        color: 'white',
-        padding: '1rem',
-      }}
-    >
-      {frontmatter.title}
-    </h2>
-  <section className="section section--gradient">
-    <div className="container">
-      <div className="section">
-        <div className="columns">
-          <div className="column is-7 is-offset-1">
-            <h3 className="has-text-weight-semibold is-size-2">{frontmatter.description}</h3>
-            <p>{frontmatter.price}</p>
-            <p>{frontmatter.quantity}</p>
-            <p>{frontmatter.category}</p>
-            {frontmatter.images.map(image => (
-              <img src={image.image.childImageSharp.fluid.src} />
-            ))}
+    < Layout >
+    <SEO title={frontmatter.title} keywords={[`gatsby`, `application`, `react`]} />
+    <div className="container details-page">
+      <div className="product-details">
+        <div className="Product-Screenshot">
+          {frontmatter.images === null ? <div className="no-image">No Image</div> :
+            <Tabs>
+              <TabPanel>
+                <Tab><img src={frontmatter.images[0].image.childImageSharp.fluid.src} alt="main image"/></Tab>
+              </TabPanel>
+              <TabList>
+                {frontmatter.images.map((items, idx) => (
+                  <Tab key={idx}><img src={items.image.childImageSharp.fluid.src} alt={idx}/></Tab>
+                ))}
+              </TabList>
+            </Tabs>}
+        </div>
+        <div>
+          <h2>{frontmatter.title}</h2>
+        </div>
+        <div className="row buynowinner">
+          <div className="col-sm-3">
+            <span className="price">Precio: {frontmatter.price}€</span>
+          </div>
+          <div className="col-sm-9 text-left">
+            <a
+              href="#"
+              className="Product snipcart-add-item"
+              // data-item-id={data.data.contentfulProduct.slug}
+              // data-item-price={data.data.contentfulProduct.price}
+              // data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
+              // data-item-name={data.data.contentfulProduct.name}
+              // data-item-url={`/`}
+            >
+              <i className="fas fa-tags" />
+              Comprar
+            </a>
           </div>
         </div>
+        <div>{frontmatter.description}</div>
       </div>
     </div>
-  </section>
-</div>
-    </Layout>
+  </Layout >
   )
 }
 
