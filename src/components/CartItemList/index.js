@@ -11,8 +11,8 @@ export default ({ removeFromCart }) => {
   if (_.values(getCart()).length === 0)
     return (
       <Message warning>
-        <Message.Header>Your cart is empty</Message.Header>
-        <p>You will need to add some items to the cart before you can checkout.</p>
+        <Message.Header>Tu carro está vacio!</Message.Header>
+        <p>Necesitas añadir algun producto al carro antes de que puedas proceder al checkout</p>
       </Message>
     );
   const mapCartItemsToItems = items =>

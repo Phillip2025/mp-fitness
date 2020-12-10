@@ -15,7 +15,7 @@ function encode(data) {
     .join('&');
 }
 const Cart = ({ location }) => {
-  const { getCart, removeFromCart } = useContext(CartContext);
+  const { getCart, removeFromCart, clearCart } = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
   const [botField, setBotField] = useState();
   const [name, setName] = useState();
@@ -32,14 +32,6 @@ const Cart = ({ location }) => {
     return price;
   };
 
-  const handleRemoveFromCart = itemId => {
-    removeFromCart(itemId);
-  };
-
-  const handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -48,7 +40,7 @@ const Cart = ({ location }) => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        botField,
+        //botField,
         cart: JSON.stringify(getCart()),
         name,
         email,
@@ -60,7 +52,7 @@ const Cart = ({ location }) => {
       }),
     })
       .then(() => {
-        console.log('onthen');
+        clearCart();
         navigate(form.getAttribute('action'));
       })
       .catch(error => alert(error));
@@ -69,7 +61,7 @@ const Cart = ({ location }) => {
   return (
     <Layout location={location}>
       <SEO title="Cart" />
-      <CartItemList removeFromCart={item => handleRemoveFromCart(item)} />
+      <CartItemList removeFromCart={item => removeFromCart(item)} />
 
       <div>
         <Divider />
