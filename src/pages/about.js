@@ -19,29 +19,29 @@ class About extends React.Component {
                   </a>
                 </p>
                 <h2>Author</h2>
-                <div class="row">
-                  <div class="col-sm-2">
+                <div className="row">
+                  <div className="col-sm-2">
                     <img
                       src="https://images.ctfassets.net/hwhhx381e090/5IlJCTvfaBL5TZ1U56ykpb/098bdd3b3f918aa29708f28fec7fdde9/rohitgupta.jpg?w=200&h=200&q=50&fit=fill"
                       alt="Rohit Gupta"
                     />
                   </div>
-                  <div class="col-sm-8">
-                    <h2 class="mb-1">Rohit Gupta</h2>
-                    <p class="mb-0">
+                  <div className="col-sm-8">
+                    <h2 className="mb-1">Rohit Gupta</h2>
+                    <p className="mb-0">
                       <a href="https://rohitgupta.netlify.app/" target="_blank" rel="noopener noreferrer">
                         Website
                       </a>
                     </p>
-                    <p class="mb-0">
+                    <p className="mb-0">
                       <a href="mailto:rohitguptab33@gmail.com">Gmail</a>
                     </p>
-                    <p class="mb-0">
+                    <p className="mb-0">
                       <a href="https://github.com/rohitguptab" target="_blank" rel="noopener noreferrer">
                         Github
                       </a>
                     </p>
-                    <p class="mb-0">
+                    <p className="mb-0">
                       <a href="https://twitter.com/_rohitguptab" target="_blank" rel="noopener noreferrer">
                         Twitter
                       </a>

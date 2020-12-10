@@ -59,7 +59,7 @@ class IndexPost extends React.Component {
   }
 }
 
-const IndexPage = data => (
+const IndexPage = ({ data, location }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `oneshopper`, `react`, `Ecommerce`]} />
     {/* <Banner BannerData={data.data.allContentfulHeaderBanner.edges} /> */}

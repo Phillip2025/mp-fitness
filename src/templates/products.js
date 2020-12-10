@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import AddToCart from '../components/AddToCart';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -54,6 +55,7 @@ const ProductPage = ({ data }) => {
                 <i className="fas fa-tags" />
                 Comprar
               </a>
+              <AddToCart item={{ ...frontmatter, id: data.markdownRemark.id }} />
             </div>
           </div>
           <div>{frontmatter.description}</div>
@@ -66,6 +68,7 @@ const ProductPage = ({ data }) => {
 ProductPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
+      id: PropTypes.string,
       frontmatter: PropTypes.object,
     }),
   }),
@@ -76,6 +79,7 @@ export default ProductPage;
 export const productPageQuery = graphql`
   query ProductsPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      id
       frontmatter {
         title
         description

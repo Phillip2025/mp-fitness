@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+import 'semantic-ui-css/semantic.min.css';
 
 import Header from './header';
 import Footer from './footer';
