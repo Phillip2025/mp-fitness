@@ -41,7 +41,7 @@ const Cart = ({ location }) => {
       body: encode({
         'form-name': form.getAttribute('name'),
         //botField,
-        cart: JSON.stringify(_.values(getCart()).map(i => ({ title: i.title, quantity: i.quantity, price: i.price }))),
+        //cart: JSON.stringify(_.values(getCart()).map(i => ({ title: i.title, quantity: i.quantity, price: i.price }))),
         name,
         email,
         address,
