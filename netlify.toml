@@ -6,3 +6,4 @@
   NODE_VERSION = "12"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
+  GO_IMPORT_PATH="github.com/phillip2025/mpfitness"
