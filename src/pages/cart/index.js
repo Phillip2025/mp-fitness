@@ -70,6 +70,7 @@ const Cart = ({ location }) => {
         <input type="text" name="zipCode" />
         <input type="text" name="city" />
         <input type="text" name="province" />
+        <input type="text" name="cart" />
       </form>
     </Layout>
   );
