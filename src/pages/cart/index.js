@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React, { useState, useContext } from 'react';
-import { navigate } from 'gatsby-link';
 import _ from 'lodash';
 import { Divider, Segment, Button, Modal } from 'semantic-ui-react';
 

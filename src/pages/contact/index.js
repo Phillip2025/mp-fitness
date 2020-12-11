@@ -43,6 +43,7 @@ export default class Index extends React.Component {
           <div className="container">
             <h1>Contacta con nosotras</h1>
             <form
+              id="contact"
               name="contact"
               method="post"
               action="/contact/thanks?no-cache=1"

@@ -40,7 +40,8 @@ export default class CartForm extends React.Component {
   render() {
     return (
       <form
-        name="shop"
+        name="cart"
+        id="cart"
         method="post"
         action="/cart/completed?no-cache=1"
         data-netlify="true"
@@ -48,7 +49,7 @@ export default class CartForm extends React.Component {
         onSubmit={this.handleSubmit}
       >
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="shop" />
+        <input type="hidden" name="form-name" value="cart" />
         <div hidden>
           <label>
             Don’t fill this out: <input name="bot-field" onChange={this.handleChange} />
