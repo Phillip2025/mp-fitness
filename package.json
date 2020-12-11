@@ -50,7 +50,7 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "npm run develop",
-    "build": "npm run clean && netlify-lambda build src/lambda && go get ./src/lambda/... && go build -o lambda/submission-created ./src/lambda/submission-created.go && gatsby build",
+    "build": "npm run clean && netlify-lambda build lambda && go get ./lambda/... && go build -o lambda/submission-created ./lambda/submission-created.go && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
