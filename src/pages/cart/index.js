@@ -58,6 +58,19 @@ const Cart = ({ location }) => {
           </Modal.Content>
         </Modal>
       </div>
+      {/* A little help for the Netlify post-processing bots */}
+      <form name="cart" id="cart" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+        <input type="hidden" name="form-name" value="cart" />
+        <input type="text" name="bot-field" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="address" />
+        <input type="text" name="additional" />
+        <input type="text" name="zipCode" />
+        <input type="text" name="city" />
+        <input type="text" name="province" />
+      </form>
     </Layout>
   );
 };
