@@ -20,7 +20,7 @@ const CategoryPage = ({ data }) => {
                 {product.node.frontmatter.images === null ? (
                   <div className="no-image">No Image</div>
                 ) : (
-                  <img src={product.node.frontmatter.images[0].image.childImageSharp.fluid.src} />
+                  <img src={product.node.frontmatter.images[0].image.childImageSharp.fluid.src} alt="main" />
                 )}
                 <div className="details_inner">
                   <h2>

@@ -22,7 +22,7 @@ const ProductPage = ({ data }) => {
               <Tabs>
                 <TabPanel>
                   <Tab>
-                    <img src={frontmatter.images[0].image.childImageSharp.fluid.src} alt="main image" />
+                    <img src={frontmatter.images[0].image.childImageSharp.fluid.src} alt="main" />
                   </Tab>
                 </TabPanel>
                 <TabList>
